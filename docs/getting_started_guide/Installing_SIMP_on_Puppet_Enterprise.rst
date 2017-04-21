@@ -27,8 +27,10 @@ At this time multiple compile masters and PE HA is not supported out of the box 
 
 System Requirements
 ^^^^^^^^^^^^^^^^^^^
+
 Puppet Enterprise
 -----------------
+
 The following versions of Puppet Enterprise are currently supported:
 
 ============  ==============  =============================================
@@ -39,9 +41,9 @@ The following versions of Puppet Enterprise are currently supported:
  2017.1        6.0             SIMP on PE HA requires manual configuration
 ============  ==============  =============================================
 
-The following yum repositories are required for SIMP modules, that are 
-currently not being managed by SIMP
+recommended to configure the replica master before installing SIMP. The replica provision process makes a lot of single time changes to the system to configure the replication, and SIMP’s security restrictions may prevent it from working properly.
 
+.. include:: Yum_Repos.rst
 
 Disclaimer
 ^^^^^^^^^^
@@ -56,10 +58,11 @@ XXX TODO Insert further information relevant to the disclaimer
 Pre-install tasks
 ^^^^^^^^^^^^^^^^^
 
-
 .. include:: Creating_A_SIMP_Control_Repo.rst
 
-XXX TODO Setting hiera simp_options::server_distribution
+.. include:: Alternate_Module_Path.rst
+
+.. include:: Configuring_Hiera.rst
 
 XXX TODO Node Classification recommendations
 

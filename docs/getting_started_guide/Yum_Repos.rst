@@ -4,7 +4,7 @@ Enable EPEL
 .. code-block:: bash
 
    $ sudo yum install epel-release -y
-   $ sudo yum install pygpgme yum-utils
+   $ sudo yum install pygpgme yum-utils git
 
 Install The SIMP-project_dependencies Repository
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

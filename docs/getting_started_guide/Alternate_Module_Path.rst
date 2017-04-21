@@ -1,5 +1,5 @@
 Adding the Alternate Module Path to environment.conf
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 SIMP uses an alternative module path, located at ``/var/simp/environments/<environment>``
 and set in each environment's ``environment.conf``.

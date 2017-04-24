@@ -65,7 +65,7 @@ config and commands, replacing <environment> with your environment.
 .. code-block:: bash
 
   $ cat << EOF > /tmp/freshclam.conf
-  DatabaseDirectory /var/simp/environments/<environment>/rsync/Global/clamav
+  DatabaseDirectory /var/simp/environments/${environment}/rsync/Global/clamav
   DatabaseMirror database.clamav.net
   Bytecode yes
   EOF

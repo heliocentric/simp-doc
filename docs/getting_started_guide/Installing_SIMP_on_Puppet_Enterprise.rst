@@ -29,7 +29,7 @@ System Requirements
 ^^^^^^^^^^^^^^^^^^^
 
 Puppet Enterprise
------------------
+~~~~~~~~~~~~~~~~~
 
 The following versions of Puppet Enterprise are currently supported:
 

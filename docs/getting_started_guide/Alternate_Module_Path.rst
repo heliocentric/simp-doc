@@ -38,9 +38,10 @@ requires a bit more work:
 
 .. code-block:: bash
 
-  mkdir -p /var/simp/environments/<environment>/{site_files/modules/pki_files,files/keydist}
-  chown root.puppet /var/simp/environments/<environment>/site_files
-  chmod -R g+rX /var/simp/environments/<environment>/site_files
+  export environment=production
+  mkdir -p /var/simp/environments/${environment}/{site_files/modules/pki_files,files/keydist}
+  chown root.puppet /var/simp/environments/${environment}/site_files
+  chmod -R g+rX /var/simp/environments/${environment}/site_files
 
 The rsync folder has a few tricks. When installed from an ISO, this data and
 folder structure is laid out by the ``simp-rsync`` rpm. When installing using the
@@ -50,9 +51,9 @@ manipulated:
 .. code-block:: bash
 
   git clone https://github.com/simp/simp-rsync.git /tmp/simp-rsync
-  mv -f /tmp/simp-rsync/environments/simp/rsync /var/simp/environments/<environment>/
-  ln -s /var/simp/environments/<environment>/rsync/RedHat /var/simp/environments/<environment>/rsync/CentOS
-  chmod u+rwx,g+rX,o+rX /var/simp/{environments,environments/production}
+  mv -f /tmp/simp-rsync/environments/simp/rsync /var/simp/environments/${environment}/
+  ln -s /var/simp/environments/${environment}/rsync/RedHat /var/simp/environments/${environment}/rsync/CentOS
+  chmod u+rwx,g+rX,o+rX /var/simp/{environments,environments/${environment}}
 
 Rsync's primary use case in a base SIMP infrastructure is to distribute ClamAV
 databases. If ``simp_options::clamav`` is set to true, rsync and this step are

@@ -73,8 +73,8 @@ config and commands, replacing <environment> with your environment.
 
 .. code-block:: bash
 
-  $ yum install -y clamav-update
-  $ freshclam -u root --config-file=/tmp/freshclam.conf
+  yum install -y clamav-update
+          freshclam -u root --config-file=/tmp/freshclam.conf
 
 Be careful when copying the first rsync environment around. There are hidden
 files in each folder that represents and rsync share called ``.shares``. There

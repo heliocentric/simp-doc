@@ -69,10 +69,11 @@ Preparing rsync certs
 
 .. code-block:: bash
 
+  hostname=$(hostname)
   mkdir -p /etc/pki/simp_apps/stunnel/x509/{public,private,cacerts}
-  cp /etc/puppetlabs/puppet/ssl/certs/mom1.test.pem /etc/pki/simp_apps/stunnel/x509/public/mom1.test.pub
+  cp /etc/puppetlabs/puppet/ssl/certs/${hostname}.pem /etc/pki/simp_apps/stunnel/x509/public/${hostname}.pub
   cp /etc/puppetlabs/puppet/ssl/ca/ca_crt.pem /etc/pki/simp_apps/stunnel/x509/cacerts/cacerts.pem
-  cp /etc/puppetlabs/puppet/ssl/private_keys/mom1.test.pem /etc/pki/simp_apps/stunnel/x509/private/
+  cp /etc/puppetlabs/puppet/ssl/private_keys/${hostname}.pem /etc/pki/simp_apps/stunnel/x509/private/
 
 
 Node Classification

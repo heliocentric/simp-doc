@@ -68,6 +68,7 @@ Preparing rsync certs
 ^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: bash
+
   mkdir -p /etc/pki/simp_apps/stunnel/x509/{public,private,cacerts}
   cp /etc/puppetlabs/puppet/ssl/certs/mom1.test.pem /etc/pki/simp_apps/stunnel/x509/public/mom1.test.pub
   cp /etc/puppetlabs/puppet/ssl/ca/ca_crt.pem /etc/pki/simp_apps/stunnel/x509/cacerts/cacerts.pem

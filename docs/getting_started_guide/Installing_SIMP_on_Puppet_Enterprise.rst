@@ -55,14 +55,28 @@ a valid support license do not invalidate their support by using SIMP.
 
 XXX TODO Insert further information relevant to the disclaimer
 
-Pre-install tasks
-^^^^^^^^^^^^^^^^^
-
 .. include:: Creating_A_SIMP_Control_Repo.rst
 
 .. include:: Alternate_Module_Path.rst
 
 .. include:: Configuring_Hiera.rst
+
+
+Node Classification
+^^^^^^^^^^^^^^^^^^^
+
+Create a node group called 'SIMP Servers', and assign the Master of Masters to the group.
+
+This server needs to have two classes assigned:
+
+.. code-block:: bash
+
+  simp
+  simp::server::rsync_shares
+
+You will also need to specify your simp::scenario. 'poss' will only manage pupmod and will generally work with PE without any extra configuration. However it will not bring the server up to any compliance standard. 'simp-lite' and 'simp' scenarios will reconfigure the server with various compliance settings.
+
+.. image:: pe_classes.png
 
 Preparing rsync certs
 ^^^^^^^^^^^^^^^^^^^^^
@@ -74,18 +88,4 @@ Preparing rsync certs
   cp /etc/puppetlabs/puppet/ssl/certs/${hostname}.pem /etc/pki/simp_apps/stunnel/x509/public/${hostname}.pub
   cp /etc/puppetlabs/puppet/ssl/ca/ca_crt.pem /etc/pki/simp_apps/stunnel/x509/cacerts/cacerts.pem
   cp /etc/puppetlabs/puppet/ssl/private_keys/${hostname}.pem /etc/pki/simp_apps/stunnel/x509/private/
-
-
-Node Classification
-^^^^^^^^^^^^^^^^^^^
-
-Create a node group called 'SIMP Servers', and assign the Master of Masters to the group.
-
-This server needs to have two classes assigned:
-.. codeblock:: bash
-  simp
-  simp::server::rsync_shares
-
-It's recommended that you set simp::scenario to 'poss'
-
 

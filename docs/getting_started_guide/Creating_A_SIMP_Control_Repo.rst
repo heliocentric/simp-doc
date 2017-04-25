@@ -1,33 +1,3 @@
-XXX TODO: place this chunk where it makes sense
-
-SIMP uses a :term:`Puppetfile` and distributes some of a :term:`Control Repo` in
-the ``simp-environment`` package, or also in the `simp-core`_ repository.:
-
-On the filesystem of an installed SIMP system:
-
-.. code-block:: bash
-
-  $ tree -L 1 /usr/share/simp/environments/simp/
-  /usr/share/simp/environments/simp/
-  ├── environment.conf
-  ├── hieradata
-  ├── manifests
-  └── modules
-
-Our git repo:
-
-.. code-block:: bash
-
-  $ tree -L 1 src/assets/simp-environment/environments/simp
-  src/assets/simp-environment/environments/simp
-  ├── environment.conf
-  ├── hieradata/
-  └── manifests/
-
-
-
-XXX TODO: END
-
 Creating or updating your Control Repo
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 

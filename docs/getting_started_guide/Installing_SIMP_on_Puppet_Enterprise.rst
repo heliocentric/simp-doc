@@ -14,16 +14,22 @@ Puppet Enterprise installation. Once installed SIMP will
 configure itself to add the necessary firewall rules, and service
 level exclusions based only on changes made to the PE Console.
 
-Installing SIMP on top of Puppet Enterprise is a multi-step process, involving changes at the following places in your environment:
+Installing SIMP on top of Puppet Enterprise is a multi-step process,
+involving changes at the following places in your environment:
 
+* manual shell commands on the Master of Masters (MoM).
 * control repo
-* global hiera
+* global or environment layer hiera
 * console classifier
-* Some manual shell commands on the Master of Masters (MoM).
 
-It is highly recommended to perform these steps in sequence to prevent loss of connectivity.
+It is highly recommended to perform these steps in sequence
+to prevent loss of connectivity.
 
-At this time multiple compile masters and PE HA is not supported out of the box in SIMP. We are currently working on a Technology Preview in succeeding 6.x versions to support HA configurations out of the box. At this time HA support requires manual configuration and only supports manual failover.
+At this time multiple compile masters and PE HA is not supported
+out of the box in SIMP. We are currently working on a Technology
+Preview in succeeding 6.x versions to support HA configurations
+out of the box. At this time HA support requires manual configuration
+and only supports manual failover.
 
 System Requirements
 ^^^^^^^^^^^^^^^^^^^
@@ -60,6 +66,31 @@ XXX TODO Insert further information relevant to the disclaimer
 .. include:: Alternate_Module_Path.rst
 
 .. include:: Configuring_Hiera.rst
+
+If running a version of SIMP 6 prior to 6.0.1, you will need to tweak your common.yaml to work around a bug in 6.0.0 and the Release candidate:
+
+.. code-block:: yaml
+
+  pupmod::pe_classlist:
+    puppet_enterprise::profile::database:
+      users:
+        - pe-postgres
+      services:
+        - pe-postgresql
+      firewall_rules:
+        - proto: tcp
+          port: 5432
+    puppet_enterprise::profile::puppetdb:
+      users:
+        - pe-puppetdb
+      services:
+        - pe-puppetdb
+      firewall_rules:
+        - proto: tcp
+          port: 8081
+  lookup_options:
+    pupmod::pe_classlist:
+      merge: hash
 
 
 Node Classification

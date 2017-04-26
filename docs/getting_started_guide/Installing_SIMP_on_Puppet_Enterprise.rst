@@ -92,6 +92,7 @@ If running a version of SIMP 6 prior to 6.0.1, you will need to tweak your commo
     pupmod::pe_classlist:
       merge: hash
 
+You will be able to remove this section once you've updated pupmod-simp-pupmod to version 7.3.2 or higher
 
 Node Classification
 ^^^^^^^^^^^^^^^^^^^

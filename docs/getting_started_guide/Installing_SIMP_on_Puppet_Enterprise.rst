@@ -110,6 +110,17 @@ You will also need to specify your simp::scenario. 'poss' will only manage pupmo
 
 .. image:: pe_classes.png
 
+XXX TODO: Add blurb about pinning the puppet-agent package on simp versions before 6.0.1
+XXX TODO: simp::yum::schedule is set to auto update by default
+XXX TODO: add hiera workarounds for simp scenario:
+
+simp_options::ldap: false
+sssd::domains:
+  - Local
+simp_options::dns::servers: <some stuff>
+pupmod::package_enesure: 'present'
+simp::yum::schedule::enable: false
+
 Preparing rsync certs
 ^^^^^^^^^^^^^^^^^^^^^
 
